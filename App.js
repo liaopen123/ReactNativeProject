@@ -10,24 +10,12 @@ type Props = {};
 export default class BlinkApp extends Component<Props> {
  render(){
    return(
-     <View>
-       <Text style={styles.bigBlue}>bigBlue</Text>
-       <Text  style={styles.red}>red</Text>
-       <Text  style={[styles.bigBlue,styles.red]}>bigRed</Text>
-       <Text  style={[styles.red,styles.bigBlue]} >BigBlue</Text>
-
+     <View style={{flex:1,flexDirection:"row-reverse"}}>
+     <View style={{flex:1,backgroundColor:'powderblue'}}></View>
+     <View style={{flex:2,backgroundColor:'skyblue'}}></View>
+     <View style={{flex:3,backgroundColor:'steelblue'}}></View>
      </View>
    );
  }
 }
 
-const  styles =  StyleSheet.create({
-  bigBlue:{
-    color:'blue',
-    fontWeight:'bold',
-    fontSize:30,
-  },
-  red:{
-    color:'red'
-  }
-});
