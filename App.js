@@ -8,22 +8,30 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Image, View} from 'react-native';
+import {Platform, StyleSheet, Text, View} from 'react-native';
 
 
 
 type Props = {};
 export default class App extends Component<Props> {
   render() {
-    let pic = {
-      uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-    };
+   
     return (
-      <Image source={pic} style={{width:193,height:110}}/>
+      <View style={{alignItems: 'center'}}>
+        <Greeting name='Rexxar' />
+        <Greeting name='Jaina' />
+        <Greeting name='Valeera' />
+      </View>
     );
   }
 }
-
+class Greeting extends Component {
+  render() {
+    return (
+      <Text>Hello {this.props.name}!</Text>
+    );
+  }
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
