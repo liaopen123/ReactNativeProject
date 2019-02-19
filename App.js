@@ -2,7 +2,7 @@
  * 我们使用StyleSheet.create 集中定义组件的样式
  */
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text,FlatList, ScrollView,View} from 'react-native';
+import {Platform, StyleSheet, Text,SectionList, ScrollView,View} from 'react-native';
 
 
 
@@ -14,66 +14,39 @@ export default class BlinkApp extends Component<Props> {
   }
  render(){
    return(
-     <View  style={[style.container,backgroundcolor='white']}>
-     <FlatList data={[
-       {key:'lph'},
-       {key:'lph1'},
-       {key:'lph2'},
-       {key:'lph3'},
-       {key:'lph4'},
-       {key:'lph5'},
-       {key:'lph6'},
-       {key:'lph7'},
-       {key:'lph8'},
-       {key:'lph9'},
-       {key:'lph10'},
-       {key:'lph11'},
-       {key:'lph12'},
-       {key:'lph13'},
-       {key:'lph14'},
-       {key:'lph14'},
-       {key:'lph14'},
-       {key:'lph14'},
-       {key:'lph14'},
-       {key:'lph14'},
-       {key:'lph14'},
-       {key:'lph14'},
-       {key:'lph14'},
-       {key:'lph14'},
-       {key:'lph14'},
-       {key:'lph14'},
-       {key:'lph14'},
-       {key:'lph14'},
-       {key:'lph14'},
-       {key:'lph14'},
-        {key:'lph14'},
-       {key:'lph14'},
-       {key:'lph14'},
-       {key:'lph14'}, 
-        {key:'lph14'},
-       {key:'lph14'},
-       {key:'lph14'},
-       {key:'lph14'},
-       {key:'lph14'},
-       {key:'lph14'},  
-       {key:'lph14'},
+     <View  style={[styles.container,backgroundcolor='white']}>
+     <SectionList sections={[
+       {title:'lph11',data:['Devin']},
+       {title:'lph222',data:['Devin','James','Jillian','Jimmy','Joel','Julie']},
      ]}
-     renderItem={({item}) => <Text style={style.item}>{item.key}</Text>}/>
+     renderItem={({item}) => <Text style={[styles.item,backgroundcolor='white']}>{item}</Text>}
+     renderSectionHeader={({section}) => <Text style={[styles.sectionHeader,backgroundcolor='white']}>{section.title}</Text>}/>
      </View>
 
    );
  }
 }
 
-const style =  StyleSheet.create({
-  container:{
-      flex:1,
-      paddingTop:22,
-      backgroundColor: 'rgba(247,247,247,1.0)',
+const styles = StyleSheet.create({
+  container: {
+   flex: 1,
+   paddingTop: 22
   },
-  item:{
-    padding:10,
-    fontSize:18,
-    height:44,
-  }
-});
+  sectionHeader: {
+    paddingTop: 2,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingBottom: 2,
+    fontSize: 14,
+    fontWeight: 'bold',
+    backgroundColor: 'rgba(247,247,247,1.0)',
+  },
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+    backgroundColor: 'white',
+    color:'white'
+  },
+})
+
