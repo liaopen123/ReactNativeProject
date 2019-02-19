@@ -13,40 +13,33 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 
 
 type Props = {};
-export default class App extends Component<Props> {
-  render() {
-   
-    return (
-      <View style={{alignItems: 'center'}}>
-        <Greeting name='Rexxar' />
-        <Greeting name='Jaina' />
-        <Greeting name='Valeera' />
+export default class BlinkApp extends Component<Props> {
+  render(){
+    return(
+      <View>
+        <Blink text='lph'/>
+        <Blink text='廖鹏辉'/>
+        <Blink text='pony'/>
       </View>
     );
   }
 }
-class Greeting extends Component {
-  render() {
-    return (
-      <Text>Hello {this.props.name}!</Text>
+class Blink extends Component{
+  constructor(props){
+    super(props);
+    this.state = {showText:true};
+
+    setInterval(() => {
+      this.setState(previousState=>{
+        return {showText:!previousState.showText};
+      });
+    }, 1000);
+  }
+  render(){
+    let display = this.state.showText?this.props.text:'';
+    return(
+      <Text>{display}</Text>
     );
   }
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+
