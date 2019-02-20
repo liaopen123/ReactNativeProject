@@ -1,52 +1,56 @@
-/**
- * 我们使用StyleSheet.create 集中定义组件的样式
- */
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text,SectionList, ScrollView,View} from 'react-native';
+'use strict';
+import React,{Component} from 'react';
+
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  PixelRatio,
+} from 'react-native';
 
 
-
-type Props = {};
-export default class BlinkApp extends Component<Props> {
-  constructor(props){
-    super(props);
-    this.state={text:''};
+export  default class App extends Component{
+  render(){
+    return(
+      <View style={styles.container}>
+        <Text style={styles.title}>大家好 我是廖鹏辉 \\n 很高兴认识大家</Text>
+      </View>
+    );
   }
- render(){
-   return(
-     <View  style={[styles.container,backgroundcolor='white']}>
-     <SectionList sections={[
-       {title:'lph11',data:['Devin']},
-       {title:'lph222',data:['Devin','James','Jillian','Jimmy','Joel','Julie']},
-     ]}
-     renderItem={({item}) => <Text style={[styles.item,backgroundcolor='white']}>{item}</Text>}
-     renderSectionHeader={({section}) => <Text style={[styles.sectionHeader,backgroundcolor='white']}>{section.title}</Text>}/>
-     </View>
-
-   );
- }
 }
 
-const styles = StyleSheet.create({
-  container: {
-   flex: 1,
-   paddingTop: 22
-  },
-  sectionHeader: {
-    paddingTop: 2,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 2,
-    fontSize: 14,
-    fontWeight: 'bold',
-    backgroundColor: 'rgba(247,247,247,1.0)',
-  },
-  item: {
-    padding: 10,
-    fontSize: 18,
-    height: 44,
-    backgroundColor: 'white',
-    color:'white'
-  },
-})
+const styles = StyleSheet.create(
+  {
+    container:{
+      paddingTop:60,
+      backgroundColor:"#eae7ff",
+      flex:1,
+      margin:1,
+      borderWidth:1,
+      borderColor:"#6435c9",
+      borderRadius:16,
+      shadowColor:"#6435c9",
+      shadowOpacity:0.6,
+      shadowRadius:2,
+      shadowOffset:{
+        height:1,
+        width:0
+      }
+    },
+    title:{
+      fontSize:26,
+      textAlign:"center",
+      fontStyle:"italic",
+      letterSpacing:2,
+      lineHeight:33,
+      fontFamily:"Courier",
+      fontWeight:"400",
+      color:"#6435c9",
+      textDecorationLine:"underline",
+      textDecorationStyle:"dotted"
+    }
 
+  }
+);
