@@ -11,6 +11,7 @@ import {
     Modal,
 } from 'react-native';
 import ModalDialog from "./ModalDialog";
+import AnimatedView from "./AnimatedView";
 //通过api得到dimensions这个对象
 let Dimensions = require('Dimensions');
 //得到屏幕的宽高
@@ -38,7 +39,9 @@ export  default class App extends Component{
 console.disableYellowBox = true // 关闭全部黄色警告
     return(
         <View style={styles.container}>
-            <ScrollView pagingEnabled={true}>
+            <AnimatedView style={{flex:1, backgroundColor: 'powderblue'}}>
+            <ScrollView pagingEnabled={true} maximumZoomScale={4.0}      minimumZoomScale={0.5} >
+                <View>
           <View  style={styles.headText}>
             <TouchableOpacity onPress={() =>{
              this.showModal();
@@ -175,7 +178,9 @@ console.disableYellowBox = true // 关闭全部黄色警告
 
 
             </Modal>
+                </View>
             </ScrollView>
+            </AnimatedView>
         </View>
     );
   }
