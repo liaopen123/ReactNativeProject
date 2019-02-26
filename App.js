@@ -2,16 +2,20 @@
 import React,{Component} from 'react';
 import { TextareaItem,Button } from '@ant-design/react-native';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
   Image,
   TouchableOpacity,
-  TextInput,
-  PixelRatio,
+    ScrollView,
+    Modal,
 } from 'react-native';
-import { NavigationActions } from 'react-navigation';
+import ModalDialog from "./ModalDialog";
+//通过api得到dimensions这个对象
+let Dimensions = require('Dimensions');
+//得到屏幕的宽高
+let ScreenWidth = Dimensions.get('window').width;
+let ScreenHeight = Dimensions.get('window').height;
 
 export  default class App extends Component{
   constructor(props) {
@@ -19,17 +23,25 @@ export  default class App extends Component{
     this.state = {
       placeholderText: '您可以写下您的购物体验，供其他小伙伴参考哦！',
       textareaText: '',
+        dialogVisible:false,
     };
   }
-  render(){
-    console.ignoredYellowBox = ['Warning: BackAndroid is deprecated. Please use BackHandler instead.','source.uri should not be an empty string','Invalid props.style key'];
 
+
+
+  showModal(){
+      this.setState({dialogVisible:true});
+  }
+  render(){
+
+    console.ignoredYellowBox = ['Warning: BackAndroid is deprecated. Please use BackHandler instead.','source.uri should not be an empty string','Invalid props.style key'];
 console.disableYellowBox = true // 关闭全部黄色警告
     return(
         <View style={styles.container}>
+            <ScrollView pagingEnabled={true}>
           <View  style={styles.headText}>
             <TouchableOpacity onPress={() =>{
-              this.props.navigation.goBack()
+             this.showModal();
             }}>
               <Image source={require('./images/black_back.png')} style={{ width: 24, height: 24 }}></Image>
             </TouchableOpacity>
@@ -38,7 +50,6 @@ console.disableYellowBox = true // 关闭全部黄色警告
           </View>
           <Text style={styles.headTips}>退款完成后系统将自动扣减佣金</Text>
           <TouchableOpacity onPress={() =>{
-            // this.props.navigation.goBack()
           }}>
             <View style={styles.contentLayout}>
               <Text style={styles.title}><Text style={{color:'#FF6026',  textAlign: 'center'}} >*</Text> 退款原因</Text>
@@ -64,6 +75,7 @@ console.disableYellowBox = true // 关闭全部黄色警告
 
           <TouchableOpacity onPress={() =>{
             // this.props.navigation.goBack()
+              this.showModal();
           }}>
             <View style={styles.contentLayout}>
               <Text style={styles.title}><Text style={{color:'#FF6026',  textAlign: 'center'}} >*</Text> 退款金额:<Text style={{color:'#FF6026',  textAlign: 'center'}} >￥5.50</Text></Text>
@@ -75,7 +87,8 @@ console.disableYellowBox = true // 关闭全部黄色警告
             <Text style={styles.title}> 退款说明: <Text style={styles.textChoose}>选填</Text></Text>
           </View>
           <View style={{backgroundColor: '#f4f4f4', marginRight: 16,marginLeft:16, marginTop: 10 }}>
-
+              <ScrollView ref={component => this._scrollView=component} scrollEnabled={false}
+                          keyboardShouldPersistTaps={true}>
             <TextareaItem style={{borderWidth:1,borderColor:"#E4E4E4",borderRadius:4}}
                 placeholder={this.state.placeholderText}
                 rows={5}
@@ -84,6 +97,64 @@ console.disableYellowBox = true // 关闭全部黄色警告
                   this.setState({textareaText: val});
                 }}
             />
+                  <TextareaItem style={{borderWidth:1,borderColor:"#E4E4E4",borderRadius:4}}
+                                placeholder={this.state.placeholderText}
+                                rows={5}
+                                count={500}
+                                onChange={(val) => {
+                                    this.setState({textareaText: val});
+                                }}
+                  />
+                  <TextareaItem style={{borderWidth:1,borderColor:"#E4E4E4",borderRadius:4}}
+                                placeholder={this.state.placeholderText}
+                                rows={5}
+                                count={500}
+                                onChange={(val) => {
+                                    this.setState({textareaText: val});
+                                }}
+                  />
+                  <TextareaItem style={{borderWidth:1,borderColor:"#E4E4E4",borderRadius:4}}
+                                placeholder={this.state.placeholderText}
+                                rows={5}
+                                count={500}
+                                onChange={(val) => {
+                                    this.setState({textareaText: val});
+                                }}
+                  />
+                  <TextareaItem style={{borderWidth:1,borderColor:"#E4E4E4",borderRadius:4}}
+                                placeholder={this.state.placeholderText}
+                                rows={5}
+                                count={500}
+                                onChange={(val) => {
+                                    this.setState({textareaText: val});
+                                }}
+                  />
+                  <TextareaItem style={{borderWidth:1,borderColor:"#E4E4E4",borderRadius:4}}
+                                placeholder={this.state.placeholderText}
+                                rows={5}
+                                count={500}
+                                onChange={(val) => {
+                                    this.setState({textareaText: val});
+                                }}
+                  />
+                  <TextareaItem style={{borderWidth:1,borderColor:"#E4E4E4",borderRadius:4}}
+                                placeholder={this.state.placeholderText}
+                                rows={5}
+                                count={500}
+                                onChange={(val) => {
+                                    this.setState({textareaText: val});
+                                }}
+                  />
+                  <TextareaItem style={{borderWidth:1,borderColor:"#E4E4E4",borderRadius:4}}
+                                placeholder={this.state.placeholderText}
+                                rows={5}
+                                count={500}
+                                onChange={(val) => {
+                                    this.setState({textareaText: val});
+                                }}
+                  />
+
+              </ScrollView>
           </View>
           <Text style={styles.textUpload}>
             上传凭证
@@ -95,6 +166,16 @@ console.disableYellowBox = true // 关闭全部黄色警告
           </View>
           <Button style={{marginTop:67,color:"#2979FF",marginLeft:8,marginRight:8,borderRadius:40,fontSize:17,fontWeight:'800'}}type="primary" shape="round">提交</Button>
 
+
+            <Modal
+                animationType='slide'
+                transparent={true}
+                visible ={this.state.dialogVisible}>
+                <ModalDialog   isShowDialog={(isShow)=>this.setState({ dialogVisible:isShow})}/>
+
+
+            </Modal>
+            </ScrollView>
         </View>
     );
   }
@@ -188,3 +269,6 @@ const styles = StyleSheet.create(
     }
 
 );
+
+
+
