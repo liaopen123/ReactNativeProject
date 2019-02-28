@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
     ScrollView,
     Modal,
+    AsyncStorage,
 } from 'react-native';
 import ModalDialog from "./ModalDialog";
 import AnimatedView from "./AnimatedView";
@@ -28,13 +29,28 @@ export  default class App extends Component{
     };
   }
 
+componentWillMount() {
 
+      AsyncStorage.setItem('name','廖鹏辉')
+}
+//读取
+    readData(){
+        console.log('读取')
+        AsyncStorage.getItem('name', function (error, result) {
+            if (error) {
+                alert('读取失败')
+            }else {
+                console.log(result)
+                alert('读取完成')
+            }
+        })
+    }
 
-  showModal(){
+    showModal(){
       this.setState({dialogVisible:true});
   }
   render(){
-
+    this.readData();
     console.ignoredYellowBox = ['Warning: BackAndroid is deprecated. Please use BackHandler instead.','source.uri should not be an empty string','Invalid props.style key'];
 console.disableYellowBox = true // 关闭全部黄色警告
     return(
