@@ -7,9 +7,10 @@ import {
   View,
   Image,
   TouchableOpacity,
+    TextInput,
     ScrollView,
     Modal,
-    AsyncStorage,
+    FlatList,
 } from 'react-native';
 import ModalDialog from "./ModalDialog";
 import AnimatedView from "./AnimatedView";
@@ -29,28 +30,11 @@ export  default class App extends Component{
     };
   }
 
-componentWillMount() {
-
-      AsyncStorage.setItem('name','廖鹏辉')
-}
-//读取
-    readData(){
-        console.log('读取')
-        AsyncStorage.getItem('name', function (error, result) {
-            if (error) {
-                alert('读取失败')
-            }else {
-                console.log(result)
-                alert('读取完成')
-            }
-        })
-    }
 
     showModal(){
       this.setState({dialogVisible:true});
   }
   render(){
-    this.readData();
     console.ignoredYellowBox = ['Warning: BackAndroid is deprecated. Please use BackHandler instead.','source.uri should not be an empty string','Invalid props.style key'];
 console.disableYellowBox = true // 关闭全部黄色警告
     return(
@@ -58,15 +42,7 @@ console.disableYellowBox = true // 关闭全部黄色警告
             <AnimatedView style={{flex:1, backgroundColor: 'powderblue'}}>
             <ScrollView pagingEnabled={true} maximumZoomScale={4.0}      minimumZoomScale={0.5} >
                 <View>
-          <View  style={styles.headText}>
-            <TouchableOpacity onPress={() =>{
-             this.showModal();
-            }}>
-              <Image source={require('./images/black_back.png')} style={{ width: 24, height: 24 }}></Image>
-            </TouchableOpacity>
-            <Text style={styles.title}>申请退款</Text>
-            <Text></Text>
-          </View>
+
           <Text style={styles.headTips}>退款完成后系统将自动扣减佣金</Text>
           <TouchableOpacity onPress={() =>{
           }}>
@@ -108,77 +84,29 @@ console.disableYellowBox = true // 关闭全部黄色警告
           <View style={{backgroundColor: '#f4f4f4', marginRight: 16,marginLeft:16, marginTop: 10 }}>
               <ScrollView ref={component => this._scrollView=component} scrollEnabled={false}
                           keyboardShouldPersistTaps={true}>
-            <TextareaItem style={{borderWidth:1,borderColor:"#E4E4E4",borderRadius:4}}
-                placeholder={this.state.placeholderText}
-                rows={5}
-                count={500}
-                onChange={(val) => {
-                  this.setState({textareaText: val});
-                }}
-            />
-                  <TextareaItem style={{borderWidth:1,borderColor:"#E4E4E4",borderRadius:4}}
-                                placeholder={this.state.placeholderText}
-                                rows={5}
-                                count={500}
-                                onChange={(val) => {
-                                    this.setState({textareaText: val});
-                                }}
-                  />
-                  <TextareaItem style={{borderWidth:1,borderColor:"#E4E4E4",borderRadius:4}}
-                                placeholder={this.state.placeholderText}
-                                rows={5}
-                                count={500}
-                                onChange={(val) => {
-                                    this.setState({textareaText: val});
-                                }}
-                  />
-                  <TextareaItem style={{borderWidth:1,borderColor:"#E4E4E4",borderRadius:4}}
-                                placeholder={this.state.placeholderText}
-                                rows={5}
-                                count={500}
-                                onChange={(val) => {
-                                    this.setState({textareaText: val});
-                                }}
-                  />
-                  <TextareaItem style={{borderWidth:1,borderColor:"#E4E4E4",borderRadius:4}}
-                                placeholder={this.state.placeholderText}
-                                rows={5}
-                                count={500}
-                                onChange={(val) => {
-                                    this.setState({textareaText: val});
-                                }}
-                  />
-                  <TextareaItem style={{borderWidth:1,borderColor:"#E4E4E4",borderRadius:4}}
-                                placeholder={this.state.placeholderText}
-                                rows={5}
-                                count={500}
-                                onChange={(val) => {
-                                    this.setState({textareaText: val});
-                                }}
-                  />
-                  <TextareaItem style={{borderWidth:1,borderColor:"#E4E4E4",borderRadius:4}}
-                                placeholder={this.state.placeholderText}
-                                rows={5}
-                                count={500}
-                                onChange={(val) => {
-                                    this.setState({textareaText: val});
-                                }}
-                  />
-                  <TextareaItem style={{borderWidth:1,borderColor:"#E4E4E4",borderRadius:4}}
-                                placeholder={this.state.placeholderText}
-                                rows={5}
-                                count={500}
-                                onChange={(val) => {
-                                    this.setState({textareaText: val});
-                                }}
-                  />
 
+                  <View style={{backgroundColor: '#f4f4f4', marginRight: 16, marginLeft: 16, marginTop: 10}}>
+
+                      <TextInput
+                          style={{borderWidth: 1, borderColor: "#E4E4E4", borderRadius: 4, textAlignVertical: 'top'}}
+                          placeholder={this.state.placeholderText}
+                          numberOfLines={4}
+                          multiline={true}
+                          maxLength={500}
+                          onChangeText={(val) => {
+                              console.log(val);
+                              this.setState({textareaText: val});
+
+                          }}
+                      />
+                      {/*<Text style={styles.hintText}>{this.state.textareaText}</Text>*/}
+
+                  </View>
               </ScrollView>
           </View>
           <Text style={styles.textUpload}>
             上传凭证
           </Text>
-
           <View style={styles.imageFrame}>
             <Image source={require('./images/fd_camera.png')} style={{ width: 40, height: 40 }}/>
             <Text style={{marginTop:3.5,color:"#999999"}}>最多六张</Text>

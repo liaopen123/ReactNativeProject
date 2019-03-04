@@ -4689,6 +4689,15 @@ react-native-collapsible@^1.4.0:
   dependencies:
     prop-types "^15.6.2"
 
+react-native-gesture-handler@^1.0.17:
+  version "1.0.17"
+  resolved "http://registry.npm.taobao.org/react-native-gesture-handler/download/react-native-gesture-handler-1.0.17.tgz#a046f371f277092157fc2781323d35a02a93daaf"
+  integrity sha1-oEbzcfJ3CSFX/CeBMj01oCqT2q8=
+  dependencies:
+    hoist-non-react-statics "^2.3.1"
+    invariant "^2.2.2"
+    prop-types "^15.5.10"
+
 react-native-gesture-handler@~1.0.14:
   version "1.0.16"
   resolved "http://registry.npm.taobao.org/react-native-gesture-handler/download/react-native-gesture-handler-1.0.16.tgz#bee54981575e581857c2298e133ce2ffac240a3e"
@@ -4755,10 +4764,10 @@ react-native-tab-view@^1.0.0, react-native-tab-view@^1.2.0:
   dependencies:
     prop-types "^15.6.1"
 
-react-native@0.58.4:
-  version "0.58.4"
-  resolved "http://registry.npm.taobao.org/react-native/download/react-native-0.58.4.tgz#bb1392727712787ba84983104c4920c0f4082677"
-  integrity sha1-uxOScncSeHuoSYMQTEkgwPQIJnc=
+react-native@^0.58.6:
+  version "0.58.6"
+  resolved "http://registry.npm.taobao.org/react-native/download/react-native-0.58.6.tgz#a6d273cd2f51b0e3b141dad5f19622e0000497b3"
+  integrity sha1-ptJzzS9RsOOxQdrV8ZYi4AAEl7M=
   dependencies:
     "@babel/runtime" "^7.0.0"
     absolute-path "^0.0.0"
