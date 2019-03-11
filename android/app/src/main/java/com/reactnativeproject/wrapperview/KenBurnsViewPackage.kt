@@ -1,0 +1,20 @@
+package com.reactnativeproject.wrapperview
+
+import android.view.View
+import com.facebook.react.ReactPackage
+import com.facebook.react.bridge.NativeModule
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.uimanager.ReactShadowNode
+import com.facebook.react.uimanager.ViewManager
+import java.util.*
+import java.util.Collections.emptyList
+
+class KenBurnsViewPackage : ReactPackage {
+    override fun createNativeModules(reactContext: ReactApplicationContext): List<NativeModule> {
+        return emptyList<NativeModule>()
+    }
+
+    override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> {
+        return Arrays.asList<ViewManager<*, *>>(KenBurnsViewManager())
+    }
+}

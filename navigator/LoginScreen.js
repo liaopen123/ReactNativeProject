@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {View,Text} from "react-native";
+import {View, Text, BackHandler, TouchableOpacity} from "react-native";
 
 export  default class LoginScreen  extends Component{
 
@@ -7,10 +7,28 @@ export  default class LoginScreen  extends Component{
 
         return(
             <View>
-                <Text   onPress={()=>this.turnHome()}>我是登陆</Text>
+                <TouchableOpacity onPress={()=>this.turnHome()}>
+                <Text>我是登陆</Text>
+                </TouchableOpacity>
             </View>
 
         );
+    }
+
+    componentDidMount() {
+        this._willBlurSubscription = this.props.navigation.addListener('willBlur', payload =>{
+                console.log('willBlur离开界面');
+                BackHandler.removeEventListener('hardwareBackPress', this.onBackButtonPressAndroid)
+        }
+
+
+        );
+    }
+
+
+    componentWillUnmount() {
+        console.log('componentWillUnmountcomponentWillUnmount');
+        this._willBlurSubscription && this._willBlurSubscription.remove();
     }
 
     turnHome() {
