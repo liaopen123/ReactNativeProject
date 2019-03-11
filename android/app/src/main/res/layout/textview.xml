@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#999999"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tv_title"
+        android:text="这是Android原生"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/iv_image"
+        android:src="@mipmap/meinv"
+        android:layout_width="300dp"
+        android:layout_height="300dp" />
+    <CheckBox
+        android:id="@+id/ck_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btn_button"
+        android:text="点击抽奖"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
