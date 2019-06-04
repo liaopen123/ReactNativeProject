@@ -3,6 +3,7 @@ import LoginScreen from './LoginScreen';
 import MainNavigator from './MainNavigator';
 import DetailScreen from './DetailScreen';
 import MeScreen from "./MeScreen";
+import ES6Base from "./ES6Base";
 
 
 
@@ -22,7 +23,10 @@ const navigator = createStackNavigator({
 
     meScreen:{
         screen:MeScreen
-    }
+    },
+    es6Test:{
+        screen:ES6Base,
+    },
 });
 
 export  default createAppContainer(navigator);

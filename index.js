@@ -22,4 +22,4 @@ import ModalPage from "./modal/ModalPage";
 import LinkingPage from "./Linking/LinkingPage";
 import ReduxPage from "./fakeredux/ReduxPage";
 
-AppRegistry.registerComponent(appName, () => ReduxPage);
+AppRegistry.registerComponent(appName, () => NavigatorApp);

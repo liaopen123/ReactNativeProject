@@ -1,13 +1,16 @@
 import React,{Component} from 'react';
 import {View, Text, BackHandler, TouchableOpacity} from "react-native";
 
-export  default class LoginScreen  extends Component{
+let base= "ES6Base";
+export  default class ES6Base  extends Component{
 
     render() {
+
+        {this.letFunction()}
         return(
             <View>
                 <TouchableOpacity onPress={()=>this.turnHome()}>
-                <Text>我是登陆</Text>
+                <Text>Es6基础</Text>
                 </TouchableOpacity>
             </View>
 
@@ -31,11 +34,27 @@ export  default class LoginScreen  extends Component{
     }
 
     turnHome() {
-        this.props.navigation.navigate('es6Test', {
+        this.props.navigation.navigate('home', {
             callBack: () => {
                 // 从单品页回来继续播放
             }
         });
+
+    }
+
+    letFunction() {
+
+        console.log("let是作用块作用域,可以修改,当前的base${base}"+base);
+        base = "能不能不要说";
+        console.log("let是作用块作用域,可以修改,当前的base${base}"+base);
+        for (let i = 0; i <10; i++) {
+            console.log("i:${i}"+i);
+            let j = "apple"+i;
+            console.log("i:${i}"+j);
+
+        }
+
+
 
     }
 }
