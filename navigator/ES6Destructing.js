@@ -96,6 +96,14 @@ export default class ES6Field extends Component {
 
         console.log(id, status, number);
 
+
+        const map = new Map();
+        map.set('first', 'hello');
+        map.set('second', 'world');
+
+        for (let [key, value] of map) {
+            console.log(key + " is " + value);
+        }
     }
 }
 
