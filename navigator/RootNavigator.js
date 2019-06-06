@@ -4,6 +4,8 @@ import MainNavigator from './MainNavigator';
 import DetailScreen from './DetailScreen';
 import MeScreen from "./MeScreen";
 import ES6Base from "./ES6Base";
+import ES6Field from "./ES6Field";
+import ES6Destructing from "./ES6Destructing";
 
 
 
@@ -25,7 +27,13 @@ const navigator = createStackNavigator({
         screen:MeScreen
     },
     es6Test:{
-        screen:ES6Base,
+        screen:ES6Base
+    },
+    es6Field:{
+        screen:ES6Field
+    },
+    es6Desctructing:{
+        screen:ES6Destructing
     },
 });
 
