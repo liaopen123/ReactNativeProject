@@ -81,22 +81,33 @@ export default class ES6Field extends Component {
 
 
     realFunction(){
+        //（1）交换变量的值
         let x = 1;
         let y = 2;
         [x,y] = [y,x]; //数组的结构  只和顺序先关 与女(名称)无瓜
         console.log(x,y);
+        //2。从函数返回多个值
+        let { id, status, data: number } = jsonData;  //利用对象的解构
+        //3.解构赋值可以方便地将一组参数与变量名对应起来。
+        //// 参数是一组有次序的值
+        // function f([x, y, z]) { ... }
+        // f([1, 2, 3]);
+        //
+        // // 参数是一组无次序的值
+        // function f({x, y, z}) { ... }
+        // f({z: 3, y: 2, x: 1});
 
+        //4.提取 JSON 数据
+        let[a,b,c] = this.getArray();
         let jsonData = {
             id: 42,
             status: "OK",
             data: [867, 5309]
         };
-
-        let { id, status, data: number } = jsonData;  //利用对象的解构
-
         console.log(id, status, number);
+        //5 参数默认值
 
-
+        //6 遍历map
         const map = new Map();
         map.set('first', 'hello');
         map.set('second', 'world');
@@ -104,6 +115,12 @@ export default class ES6Field extends Component {
         for (let [key, value] of map) {
             console.log(key + " is " + value);
         }
+    }
+
+
+     getArray(){
+
+        return [1,2,3];
     }
 }
 

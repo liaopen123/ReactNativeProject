@@ -6,6 +6,8 @@ import MeScreen from "./MeScreen";
 import ES6Base from "./ES6Base";
 import ES6Field from "./ES6Field";
 import ES6Destructing from "./ES6Destructing";
+import ES6StringExt from "./ES6StringExt";
+import ES6NumberMath from "./ES6NumberMath";
 
 
 
@@ -34,6 +36,12 @@ const navigator = createStackNavigator({
     },
     es6Desctructing:{
         screen:ES6Destructing
+    },
+    es6String:{
+        screen:ES6StringExt
+    },
+    es6NumberMath:{
+        screen:ES6NumberMath
     },
 });
 

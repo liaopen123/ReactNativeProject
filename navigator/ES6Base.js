@@ -26,6 +26,12 @@ export default class ES6Base extends Component {
                     <TouchableOpacity onPress={()=>this.turnES6Destructing()}>
                         <Text>Es6基础之解构</Text>
                     </TouchableOpacity>
+                    <TouchableOpacity onPress={()=>this.turnES6String()}>
+                        <Text>Es6基础之字符串的扩展</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={()=>this.turnES6Number()}>
+                        <Text>Es6基础之Number的扩展</Text>
+                    </TouchableOpacity>
                 </TouchableOpacity>
             </View>
 
@@ -83,6 +89,16 @@ export default class ES6Base extends Component {
     turnES6Destructing() {
 
         this.props.navigation.navigate("es6Desctructing");
+
+    }
+    turnES6String() {
+
+        this.props.navigation.navigate("es6String");
+
+    }
+    turnES6Number() {
+
+        this.props.navigation.navigate("es6NumberMath");
 
     }
 }
