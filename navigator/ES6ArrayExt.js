@@ -18,7 +18,7 @@ export default class ES6Field extends Component {
 
         return (<View style={styles.container}>
 
-            <Text>数值的扩展</Text>
+            <Text>数组的扩展</Text>
 
         </View>);
     }

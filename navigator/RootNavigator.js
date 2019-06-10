@@ -8,6 +8,8 @@ import ES6Field from "./ES6Field";
 import ES6Destructing from "./ES6Destructing";
 import ES6StringExt from "./ES6StringExt";
 import ES6NumberMath from "./ES6NumberMath";
+import ES6FunctionExt from "./ES6FunctionExt";
+import ES6ArrayExt from "./ES6ArrayExt";
 
 
 
@@ -42,6 +44,12 @@ const navigator = createStackNavigator({
     },
     es6NumberMath:{
         screen:ES6NumberMath
+    },
+    es6FunctionExt:{
+        screen:ES6FunctionExt
+    },
+    es6ArrayExt:{
+        screen:ES6ArrayExt
     },
 });
 

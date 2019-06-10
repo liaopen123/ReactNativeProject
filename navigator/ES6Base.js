@@ -32,6 +32,12 @@ export default class ES6Base extends Component {
                     <TouchableOpacity onPress={()=>this.turnES6Number()}>
                         <Text>Es6基础之Number的扩展</Text>
                     </TouchableOpacity>
+                    <TouchableOpacity onPress={()=>this.turnES6FunctionExt()}>
+                        <Text>Es6基础之函数的扩展</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={()=>this.turnES6FunctionExt()}>
+                        <Text>Es6基础之数组的扩展</Text>
+                    </TouchableOpacity>
                 </TouchableOpacity>
             </View>
 
@@ -97,8 +103,12 @@ export default class ES6Base extends Component {
 
     }
     turnES6Number() {
-
         this.props.navigation.navigate("es6NumberMath");
-
+    }
+    turnES6FunctionExt() {
+        this.props.navigation.navigate("es6FunctionExt");
+    }
+    turnES6ArrayExt() {
+        this.props.navigation.navigate("es6ArrayExt");
     }
 }
