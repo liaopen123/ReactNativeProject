@@ -35,7 +35,7 @@ export default class ES6Base extends Component {
                     <TouchableOpacity onPress={()=>this.turnES6FunctionExt()}>
                         <Text>Es6基础之函数的扩展</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>this.turnES6FunctionExt()}>
+                    <TouchableOpacity onPress={()=>this.turnES6ArrayExt()}>
                         <Text>Es6基础之数组的扩展</Text>
                     </TouchableOpacity>
                 </TouchableOpacity>
