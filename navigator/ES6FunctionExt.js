@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from "react-native";
+import {View, Text, StyleSheet, TouchableOpacity,FlatList} from "react-native";
 
 
 let f = v => v;
@@ -30,7 +30,6 @@ export default class ES6Field extends Component {
         return (<View style={styles.container}>
 
             <Text>函数的扩展</Text>
-
         </View>);
     }
 
