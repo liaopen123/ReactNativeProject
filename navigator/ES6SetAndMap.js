@@ -8,8 +8,8 @@ export default class ES6SetAndMap extends Component {
     componentDidMount(): void {
 
         // this.easySet();
-        this.easyMap();
-
+        // this.easyMap();
+        this.testMap();
 
     }
 
@@ -203,6 +203,19 @@ let maps = new Map([
     }
 
 
+    testMap() {
+        let maps = new Map([
+            ["name",'lph'],
+            ["name1",'lp1h'],
+            ["name2",'lph2'],
+            ["name3",'lph1'],
+            ["name4",'lph3'],
+
+        ]);
+
+        maps.forEach((a,b)=>console.log(a,b));
+
+    }
 }
 
 
