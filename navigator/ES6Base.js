@@ -38,6 +38,12 @@ export default class ES6Base extends Component {
                     <TouchableOpacity onPress={()=>this.turnES6ArrayExt()}>
                         <Text>Es6基础之数组的扩展</Text>
                     </TouchableOpacity>
+                    <TouchableOpacity onPress={()=>this.turnESObjectExt()}>
+                        <Text>Es6基础之对象的扩展</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={()=>this.turnESes6SetMapExt()}>
+                        <Text>Es6基础之SetMap的扩展</Text>
+                    </TouchableOpacity>
                 </TouchableOpacity>
             </View>
 
@@ -110,5 +116,12 @@ export default class ES6Base extends Component {
     }
     turnES6ArrayExt() {
         this.props.navigation.navigate("es6ArrayExt");
+    }
+
+    turnESObjectExt() {
+        this.props.navigation.navigate("es6ObjectExt");
+    }
+    turnESes6SetMapExt() {
+        this.props.navigation.navigate("es6SetMapExt");
     }
 }
