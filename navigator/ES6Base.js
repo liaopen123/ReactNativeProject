@@ -44,6 +44,9 @@ export default class ES6Base extends Component {
                     <TouchableOpacity onPress={()=>this.turnESes6SetMapExt()}>
                         <Text>Es6基础之SetMap的扩展</Text>
                     </TouchableOpacity>
+                    <TouchableOpacity onPress={()=>this.turnEs6Promise()}>
+                        <Text>Es6基础之turnEs6Promise</Text>
+                    </TouchableOpacity>
                 </TouchableOpacity>
             </View>
 
@@ -123,5 +126,7 @@ export default class ES6Base extends Component {
     }
     turnESes6SetMapExt() {
         this.props.navigation.navigate("es6SetMapExt");
+    }  turnEs6Promise() {
+        this.props.navigation.navigate("es6Promise");
     }
 }

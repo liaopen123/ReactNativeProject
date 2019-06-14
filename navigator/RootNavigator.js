@@ -12,6 +12,7 @@ import ES6FunctionExt from "./ES6FunctionExt";
 import ES6ArrayExt from "./ES6ArrayExt";
 import ES6ObjectExt from "./ES6ObjectExt";
 import ES6SetAndMap from "./ES6SetAndMap";
+import ES6Promise from "./ES6Promise";
 
 
 
@@ -58,6 +59,9 @@ const navigator = createStackNavigator({
     },
     es6SetMapExt:{
         screen:ES6SetAndMap
+    },
+    es6Promise:{
+        screen:ES6Promise
     },
 });
 
